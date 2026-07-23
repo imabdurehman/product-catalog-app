@@ -1,0 +1,79 @@
+.pageNotFoundContainer {
+  min-height: 80vh;
+  background: #f8fafc;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.pageNotFoundContainer h1 {
+  font-size: 120px;
+  color: #111827;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.pageNotFoundContainer h2 {
+  font-size: 36px;
+  color: #111827;
+  margin: 20px 0 15px;
+}
+
+.pageNotFoundContainer p {
+  max-width: 500px;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.pageNotFoundContainer a {
+  text-decoration: none;
+}
+
+.pageNotFoundContainer button {
+  border: none;
+  outline: none;
+
+  background: #23629a;
+  color: #ffffff;
+
+  padding: 14px 30px;
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pageNotFoundContainer button:hover {
+  background: #1b4f7d;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .pageNotFoundContainer h1 {
+    font-size: 90px;
+  }
+
+  .pageNotFoundContainer h2 {
+    font-size: 28px;
+  }
+
+  .pageNotFoundContainer p {
+    font-size: 16px;
+  }
+
+  .pageNotFoundContainer button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
