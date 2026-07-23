@@ -27,7 +27,7 @@
 }
 
 .left span {
-  color: #2563eb;
+  color: #23629a;
 }
 
 .left p {
@@ -38,34 +38,6 @@
   font-size: 18px;
 
   line-height: 1.7;
-}
-
-.left button {
-  margin-top: 15px;
-
-  background: #2563eb;
-
-  color: white;
-
-  border: none;
-
-  padding: 15px 30px;
-
-  border-radius: 12px;
-
-  font-size: 16px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.3s ease;
-}
-
-.left button:hover {
-  background: #1d4ed8;
-
-  transform: translateY(-3px);
 }
 
 /* Stats Section */
@@ -109,7 +81,7 @@
 .stat h2 {
   font-size: 38px;
 
-  color: #2563eb;
+  color: #23629a;
 
   margin-bottom: 10px;
 }

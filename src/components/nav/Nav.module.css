@@ -22,7 +22,7 @@
 }
 
 .navContainer img {
-  width: 170px;
+  width: 100px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -48,7 +48,7 @@
 }
 
 .navContainer ul li a:hover {
-  color: #2563eb;
+  color: #23629a;
 }
 
 .navContainer ul li a::after {
@@ -62,7 +62,7 @@
   width: 0;
   height: 3px;
 
-  background: #2563eb;
+  background: #23629a;
   border-radius: 50px;
 
   transition: width 0.3s ease;
@@ -74,7 +74,7 @@
 }
 
 .active {
-  color: #2563eb !important;
+  color: #23629a !important;
 }
 
 /* ---------------- Tablet ---------------- */
@@ -85,11 +85,11 @@
   }
 
   .navContainer img {
-    width: 150px;
+    width: 100px;
   }
 
   .navContainer ul {
-    gap: 25px;
+    gap: 30px;
   }
 }
 
@@ -100,15 +100,15 @@
     height: auto;
     padding: 20px;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
   }
 
   .navContainer img {
-    width: 150px;
+    width: 100px;
   }
 
   .navContainer ul {
-    gap: 18px;
+    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
   }

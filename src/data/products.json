@@ -17,7 +17,7 @@
     "price": 1199,
     "rating": 4.8,
     "description": "Samsung's premium Android smartphone with AI features, a high-resolution display, and powerful performance.",
-    "image": "/images/Galaxy-S25-Ultra.webp"
+    "image": "/images/SamsungGalaxyS25.jpg"
   },
   {
     "id": "3",
@@ -47,7 +47,7 @@
     "price": 1199,
     "rating": 4.8,
     "description": "Premium ultrabook with a stunning InfinityEdge display, Intel processor, and elegant design.",
-    "image": "/images/dell-xps-13-9360-intel-core-i7.png"
+    "image": "/images/dellxps13.jpg"
   },
   {
     "id": "6",
@@ -67,7 +67,7 @@
     "price": 249,
     "rating": 4.5,
     "description": "Apple Watch Series 2 features built-in GPS, water resistance up to 50 meters, fitness tracking, heart rate monitoring, and seamless integration with the Apple ecosystem.",
-    "image": "/images/apple-watch-series-2.jpg"
+    "image": "/images/applewatchseries2.jpg"
   },
   {
     "id": "8",
@@ -91,13 +91,13 @@
   },
   {
     "id": "10",
-    "name": "AirPods Pro (2nd Gen)",
+    "name": "AirPods Pro 2nd Generation",
     "brand": "Apple",
     "category": "Earbuds",
     "price": 249,
     "rating": 4.9,
     "description": "Premium wireless earbuds with Active Noise Cancellation, Spatial Audio, and USB-C charging.",
-    "image": "/images/AirPods-Pro-2-Wireless-Earbuds-PNG.webp"
+    "image": "/images/appleairpods2gen.jpg"
   },
   {
     "id": "11",

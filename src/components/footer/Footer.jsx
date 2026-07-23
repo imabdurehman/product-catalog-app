@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/techshack-logo.png";
+import logo from "../../assets/techshack-logo-transparent.png";
 import styles from "./Footer.module.css";
 
 const Footer = () => {

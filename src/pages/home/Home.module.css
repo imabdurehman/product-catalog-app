@@ -22,7 +22,7 @@
 }
 
 .left span {
-  color: #2563eb;
+  color: #23629a;
 }
 
 .left p {
@@ -36,7 +36,7 @@
   border: none;
   outline: none;
 
-  background: #2563eb;
+  background: #23629a;
   color: white;
 
   padding: 16px 35px;
@@ -51,7 +51,7 @@
 }
 
 .left button:hover {
-  background: #1d4ed8;
+  background: #1b4f7d;
 }
 
 /* Hero Right */

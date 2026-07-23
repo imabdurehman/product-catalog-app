@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/techshack-logo.png";
+import logo from "../../assets/techshack-logo-black.png";
 import styles from "./Nav.module.css";
 
 const Nav = () => {
