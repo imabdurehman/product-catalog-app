@@ -1,0 +1,197 @@
+.about {
+  max-width: 1300px;
+
+  margin: auto;
+
+  padding: 90px 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+/* Left Content */
+
+.left {
+  flex: 1;
+}
+
+.left h1 {
+  font-size: 48px;
+
+  color: #111827;
+
+  line-height: 1.2;
+}
+
+.left span {
+  color: #2563eb;
+}
+
+.left p {
+  margin: 20px 0;
+
+  color: #6b7280;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+.left button {
+  margin-top: 15px;
+
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  padding: 15px 30px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.left button:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-3px);
+}
+
+/* Stats Section */
+
+.right {
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
+}
+
+/* Individual Stats */
+
+.stat {
+  padding: 35px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  opacity: 0;
+
+  animation: slideUp 0.8s ease forwards;
+
+  transition: 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.stat h2 {
+  font-size: 38px;
+
+  color: #2563eb;
+
+  margin-bottom: 10px;
+}
+
+.stat p {
+  color: #6b7280;
+
+  font-size: 16px;
+}
+
+/* Stagger Animation */
+
+.stat:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.stat:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.stat:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.stat:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Animation */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .about {
+    flex-direction: column;
+
+    padding: 60px 25px;
+
+    gap: 50px;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .left h1 {
+    font-size: 38px;
+  }
+
+  .left p {
+    font-size: 16px;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .right {
+    grid-template-columns: 1fr;
+  }
+
+  .stat {
+    padding: 30px;
+  }
+
+  .stat h2 {
+    font-size: 32px;
+  }
+}

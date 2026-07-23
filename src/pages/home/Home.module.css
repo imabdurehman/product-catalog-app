@@ -1,0 +1,183 @@
+.hero {
+  max-width: 1300px;
+  margin: auto;
+  padding: 70px 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Hero Left */
+
+.left {
+  flex: 1;
+}
+
+.left h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.left span {
+  color: #2563eb;
+}
+
+.left p {
+  margin: 25px 0;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.left button {
+  border: none;
+  outline: none;
+
+  background: #2563eb;
+  color: white;
+
+  padding: 16px 35px;
+  border-radius: 12px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.left button:hover {
+  background: #1d4ed8;
+}
+
+/* Hero Right */
+
+.right {
+  flex: 1;
+}
+
+.right img {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Features Section */
+
+.features {
+  max-width: 1300px;
+  margin: auto;
+
+  padding: 80px 50px;
+
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 36px;
+  color: #111827;
+
+  margin-bottom: 40px;
+}
+
+/* Feature Cards */
+
+.featureCards {
+  display: flex;
+  justify-content: center;
+
+  gap: 30px;
+
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  font-size: 22px;
+
+  color: #111827;
+
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #6b7280;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+
+    padding: 50px 25px;
+
+    text-align: center;
+  }
+
+  .left h1 {
+    font-size: 42px;
+  }
+
+  .right img {
+    max-width: 450px;
+  }
+
+  .features {
+    padding: 50px 25px;
+  }
+
+  .features h2 {
+    font-size: 30px;
+  }
+
+  .featureCards {
+    flex-direction: column;
+
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .left h1 {
+    font-size: 34px;
+  }
+
+  .left p {
+    font-size: 16px;
+  }
+
+  .left button {
+    padding: 14px 25px;
+
+    font-size: 15px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

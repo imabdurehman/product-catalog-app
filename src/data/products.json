@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "name": "iPhone 16 Pro",
+    "brand": "Apple",
+    "category": "Phone",
+    "price": 999,
+    "rating": 4.9,
+    "description": "The latest Apple flagship smartphone featuring the A18 Pro chip, advanced camera system, and an all-day battery life.",
+    "image": "/images/IPHONE-16-PRO.png"
+  },
+  {
+    "id": "2",
+    "name": "Galaxy S25 Ultra",
+    "brand": "Samsung",
+    "category": "Phone",
+    "price": 1199,
+    "rating": 4.8,
+    "description": "Samsung's premium Android smartphone with AI features, a high-resolution display, and powerful performance.",
+    "image": "/images/Galaxy-S25-Ultra.webp"
+  },
+  {
+    "id": "3",
+    "name": "Pixel 9 Pro",
+    "brand": "Google",
+    "category": "Phone",
+    "price": 899,
+    "rating": 4.7,
+    "description": "Google's flagship smartphone with an outstanding camera, clean Android experience, and Gemini AI features.",
+    "image": "/images/Google_Pixel_9Pro.png"
+  },
+  {
+    "id": "4",
+    "name": "MacBook Air M4",
+    "brand": "Apple",
+    "category": "Laptop",
+    "price": 1299,
+    "rating": 4.9,
+    "description": "Lightweight laptop powered by Apple's M4 chip with exceptional battery life and smooth performance.",
+    "image": "/images/macbook4.png"
+  },
+  {
+    "id": "5",
+    "name": "Dell XPS 13",
+    "brand": "Dell",
+    "category": "Laptop",
+    "price": 1199,
+    "rating": 4.8,
+    "description": "Premium ultrabook with a stunning InfinityEdge display, Intel processor, and elegant design.",
+    "image": "/images/dell-xps-13-9360-intel-core-i7.png"
+  },
+  {
+    "id": "6",
+    "name": "ASUS ROG Zephyrus G16",
+    "brand": "ASUS",
+    "category": "Laptop",
+    "price": 1699,
+    "rating": 4.9,
+    "description": "High-performance gaming laptop with RTX graphics, fast refresh rate display, and premium cooling.",
+    "image": "/images/Rog-ZephyrusG16.png"
+  },
+  {
+    "id": "7",
+    "name": "Apple Watch Series 2",
+    "brand": "Apple",
+    "category": "Smart Watch",
+    "price": 249,
+    "rating": 4.5,
+    "description": "Apple Watch Series 2 features built-in GPS, water resistance up to 50 meters, fitness tracking, heart rate monitoring, and seamless integration with the Apple ecosystem.",
+    "image": "/images/apple-watch-series-2.jpg"
+  },
+  {
+    "id": "8",
+    "name": "Galaxy Watch Ultra",
+    "brand": "Samsung",
+    "category": "Smart Watch",
+    "price": 499,
+    "rating": 4.7,
+    "description": "Durable smartwatch with GPS, health tracking, and long battery life for outdoor adventures.",
+    "image": "/images/Samsung_Galaxy_Watch_Ultra_47mm.webp"
+  },
+  {
+    "id": "9",
+    "name": "Pixel Watch 3",
+    "brand": "Google",
+    "category": "Smart Watch",
+    "price": 349,
+    "rating": 4.6,
+    "description": "Elegant smartwatch powered by Wear OS with fitness tracking and Google Assistant integration.",
+    "image": "/images/google_pixel_3watch.webp"
+  },
+  {
+    "id": "10",
+    "name": "AirPods Pro (2nd Gen)",
+    "brand": "Apple",
+    "category": "Earbuds",
+    "price": 249,
+    "rating": 4.9,
+    "description": "Premium wireless earbuds with Active Noise Cancellation, Spatial Audio, and USB-C charging.",
+    "image": "/images/AirPods-Pro-2-Wireless-Earbuds-PNG.webp"
+  },
+  {
+    "id": "11",
+    "name": "Galaxy Buds 3 Pro",
+    "brand": "Samsung",
+    "category": "Earbuds",
+    "price": 199,
+    "rating": 4.7,
+    "description": "Comfortable wireless earbuds offering immersive sound quality and intelligent noise cancellation.",
+    "image": "/images/samsaung-earbuds_3pro.webp"
+  },
+  {
+    "id": "12",
+    "name": "Sony WF-1000XM5",
+    "brand": "Sony",
+    "category": "Earbuds",
+    "price": 299,
+    "rating": 4.8,
+    "description": "Industry-leading noise-cancelling earbuds with rich sound quality and long-lasting battery performance.",
+    "image": "/images/sony_earbuds.webp"
+  }
+]
