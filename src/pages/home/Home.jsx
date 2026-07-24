@@ -3,8 +3,15 @@ import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
 import BannerImage from "../../assets/techshack-banner.png";
 import styles from "./Home.module.css";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/products");
+  };
+
   return (
     <div>
       <Nav />
@@ -20,7 +27,7 @@ const Home = () => {
             Explore premium smartphones, laptops, smart watches and earbuds at
             TechShack.
           </p>
-          <button>Explore Products</button>
+          <button onClick={handleClick}>Explore Products</button>
         </div>
         <div className={styles.right}>
           <img src={BannerImage} alt="TechShack Banner" />
