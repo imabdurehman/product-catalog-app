@@ -1,9 +1,8 @@
 import React from "react";
 import ProductCard from "../productcard/ProductCard";
-import products from "../../data/products.json";
 import styles from "./ProductList.module.css";
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
   return (
     <div className={styles.cardContainer}>
       {products.map((product) => {

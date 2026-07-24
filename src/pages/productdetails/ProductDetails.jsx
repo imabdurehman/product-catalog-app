@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
 import { useParams } from "react-router-dom";
