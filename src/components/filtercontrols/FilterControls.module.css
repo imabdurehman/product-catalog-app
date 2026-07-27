@@ -1,0 +1,60 @@
+.filterControlsBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filterControlsBox label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+}
+
+.filterControlsBox select {
+  min-width: 180px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  outline: none;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 15px;
+  cursor: pointer;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.filterControlsBox select:hover {
+  border-color: #d1d5db;
+}
+
+.filterControlsBox select:focus {
+  border-color: #23629a;
+  box-shadow: 0 0 0 3px rgba(35, 98, 154, 0.15);
+}
+
+@media (max-width: 768px) {
+  .filterControlsBox {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .filterControlsBox label {
+    font-size: 15px;
+  }
+
+  .filterControlsBox select {
+    width: 100%;
+    min-width: 100%;
+    padding: 13px 15px;
+    font-size: 14px;
+  }
+}

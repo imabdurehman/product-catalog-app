@@ -60,8 +60,13 @@ const ProductDetails = () => {
           </div>
 
           <div className={styles.quantity}>
-            <label>Quantity : </label>
-            <input type="number" value={quantity} onChange={quantityHandler} />
+            <label htmlFor="quantity">Quantity : </label>
+            <input
+              id="quantity"
+              type="number"
+              value={quantity}
+              onChange={quantityHandler}
+            />
           </div>
 
           <div className={styles.cartButton}>

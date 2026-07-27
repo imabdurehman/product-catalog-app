@@ -6,12 +6,24 @@ import SearchBar from "../../components/searchbar/SearchBar";
 import products from "../../data/products.json";
 import { useState } from "react";
 import styles from "./Products.module.css";
+import CategoryFilter from "../../components/categoryfilter/CategoryFilter";
+import Sorting from "../../components/sorting/Sorting";
 
 const Products = () => {
   const [searchInput, setSearchInput] = useState("");
+  const [category, setCategory] = useState("All");
+  const [sorting, setSorting] = useState("Default" || 0);
 
   const searchInputHandler = (e) => {
     setSearchInput(e.target.value);
+  };
+
+  const categoryHandler = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const sortingHandler = (e) => {
+    setSorting(e.target.value);
   };
 
   const searchInputLower = searchInput.toLowerCase().trim();
@@ -19,15 +31,25 @@ const Products = () => {
     product.name.toLowerCase().includes(searchInputLower),
   );
 
+  const filterCategory = filterProducts.filter(
+    (product) => category === "All" || product.category === category,
+  );
+
   return (
-    <div className={styles.control}>
+    <div>
       <Nav />
-      <SearchBar
-        searchInput={searchInput}
-        searchInputHandler={searchInputHandler}
-      />
-      {filterProducts.length !== 0 ? (
-        <ProductList products={filterProducts} />
+
+      <div className={styles.control}>
+        <SearchBar
+          searchInput={searchInput}
+          searchInputHandler={searchInputHandler}
+        />
+        <CategoryFilter category={category} categoryHandler={categoryHandler} />
+        <Sorting sorting={sorting} sortingHandler={sortingHandler} />
+      </div>
+
+      {filterCategory.length !== 0 ? (
+        <ProductList products={filterCategory} />
       ) : (
         <div className={styles.notFoundContainer}>
           <h2>No Products Found</h2>

@@ -5,17 +5,13 @@ import styles from "./SearchBar.module.css";
 const SearchBar = ({ searchInput, searchInputHandler }) => {
   return (
     <div className={styles.searchBox}>
-      <form>
-        <input
-          type="text"
-          placeholder="Search products.."
-          value={searchInput}
-          onChange={searchInputHandler}
-        />
-        <button type="submit">
-          <FaSearch />
-        </button>
-      </form>
+      <FaSearch />
+      <input
+        type="text"
+        placeholder="Search products.."
+        value={searchInput}
+        onChange={searchInputHandler}
+      />
     </div>
   );
 };
