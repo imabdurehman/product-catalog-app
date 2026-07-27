@@ -7,7 +7,6 @@ import products from "../../data/products.json";
 import { useState } from "react";
 import styles from "./Products.module.css";
 import CategoryFilter from "../../components/categoryfilter/CategoryFilter";
-import Sorting from "../../components/sorting/Sorting";
 
 const Products = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -58,8 +57,31 @@ const Products = () => {
           searchInput={searchInput}
           searchInputHandler={searchInputHandler}
         />
-        <CategoryFilter category={category} categoryHandler={categoryHandler} />
-        <Sorting sorting={sorting} sortingHandler={sortingHandler} />
+        <CategoryFilter
+          label="Filter"
+          id="filtering"
+          value={category}
+          onchange={categoryHandler}
+        >
+          <option value="All">All</option>
+          <option value="Phone">Phones</option>
+          <option value="Laptop">Laptops</option>
+          <option value="Smart Watch">Watches</option>
+          <option value="Earbuds">Earbuds</option>
+        </CategoryFilter>
+
+        <CategoryFilter
+          label="Sort"
+          id="sorting"
+          value={sorting}
+          onchange={sortingHandler}
+        >
+          <option value="default">Default</option>
+          <option value="price-low-to-high">Price Low–High</option>
+          <option value="price-high-to-low">Price High–Low</option>
+          <option value="rating">Rating</option>
+          <option value="name">Name (A-Z)</option>
+        </CategoryFilter>
       </div>
 
       {sortedProducts.length !== 0 ? (
