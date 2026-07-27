@@ -12,7 +12,7 @@ import Sorting from "../../components/sorting/Sorting";
 const Products = () => {
   const [searchInput, setSearchInput] = useState("");
   const [category, setCategory] = useState("All");
-  const [sorting, setSorting] = useState("Default" || 0);
+  const [sorting, setSorting] = useState("default");
 
   const searchInputHandler = (e) => {
     setSearchInput(e.target.value);
@@ -27,13 +27,27 @@ const Products = () => {
   };
 
   const searchInputLower = searchInput.toLowerCase().trim();
-  const filterProducts = products.filter((product) =>
+  const searchProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchInputLower),
   );
 
-  const filterCategory = filterProducts.filter(
+  const filterCategory = searchProducts.filter(
     (product) => category === "All" || product.category === category,
   );
+
+  const sortedProducts = [...filterCategory].sort((a, b) => {
+    if (sorting === "default") {
+      return a.id - b.id;
+    } else if (sorting === "price-low-to-high") {
+      return a.price - b.price;
+    } else if (sorting === "price-high-to-low") {
+      return b.price - a.price;
+    } else if (sorting === "rating") {
+      return b.rating - a.rating;
+    } else {
+      return a.name.localeCompare(b.name);
+    }
+  });
 
   return (
     <div>
@@ -48,8 +62,8 @@ const Products = () => {
         <Sorting sorting={sorting} sortingHandler={sortingHandler} />
       </div>
 
-      {filterCategory.length !== 0 ? (
-        <ProductList products={filterCategory} />
+      {sortedProducts.length !== 0 ? (
+        <ProductList products={sortedProducts} />
       ) : (
         <div className={styles.notFoundContainer}>
           <h2>No Products Found</h2>

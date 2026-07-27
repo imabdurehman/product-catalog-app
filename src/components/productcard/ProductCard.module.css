@@ -1,9 +1,16 @@
+.cardLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .card {
   background: #ffffff;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -86,12 +93,13 @@
   color: #23629a;
 }
 
-.bottom button {
-  border: none;
-  outline: none;
+.bottom span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   background: #23629a;
-  color: white;
+  color: #ffffff;
 
   padding: 12px 20px;
   border-radius: 10px;
@@ -99,11 +107,10 @@
   font-size: 15px;
   font-weight: 600;
 
-  cursor: pointer;
   transition: 0.3s ease;
 }
 
-.bottom button:hover {
+.card:hover .bottom span {
   background: #1b4f7d;
   transform: translateY(-2px);
 }
@@ -129,7 +136,9 @@
     text-align: center;
   }
 
-  .bottom button {
+  .bottom span {
     width: 100%;
+    box-sizing: border-box;
+    text-align: center;
   }
 }
