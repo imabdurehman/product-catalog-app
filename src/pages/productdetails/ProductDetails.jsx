@@ -12,11 +12,13 @@ const ProductDetails = () => {
 
   const [quantity, setQuantity] = useState(1);
 
-  const quantityHandler = (e) => {
-    const value = Number(e.target.value);
+  const quantityIncrementHandler = () => {
+    setQuantity((prev) => prev + 1);
+  };
 
-    if (value >= 1) {
-      setQuantity(value);
+  const quantityDecrementHandler = () => {
+    if (quantity >= 1) {
+      setQuantity((prev) => prev - 1);
     }
   };
 
@@ -60,13 +62,9 @@ const ProductDetails = () => {
           </div>
 
           <div className={styles.quantity}>
-            <label htmlFor="quantity">Quantity : </label>
-            <input
-              id="quantity"
-              type="number"
-              value={quantity}
-              onChange={quantityHandler}
-            />
+            <button onClick={quantityDecrementHandler}>-</button>
+            <p>{quantity}</p>
+            <button onClick={quantityIncrementHandler}>+</button>
           </div>
 
           <div className={styles.cartButton}>
