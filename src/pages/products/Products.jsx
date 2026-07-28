@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "../../components/nav/Nav";
 import ProductList from "../../components/productlist/ProductList";
 import Footer from "../../components/footer/Footer";
@@ -12,6 +12,7 @@ const Products = () => {
   const [searchInput, setSearchInput] = useState("");
   const [category, setCategory] = useState("All");
   const [sorting, setSorting] = useState("default");
+  const [visibleProducts, setVisibleProducts] = useState(6);
 
   const searchInputHandler = (e) => {
     setSearchInput(e.target.value);
@@ -25,16 +26,20 @@ const Products = () => {
     setSorting(e.target.value);
   };
 
+  const loadHandler = () => {
+    setVisibleProducts((prev) => prev + 6);
+  };
+
   const searchInputLower = searchInput.toLowerCase().trim();
   const searchProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchInputLower),
   );
 
-  const filterCategory = searchProducts.filter(
+  const filterProducts = searchProducts.filter(
     (product) => category === "All" || product.category === category,
   );
 
-  const sortedProducts = [...filterCategory].sort((a, b) => {
+  const sortedProducts = [...filterProducts].sort((a, b) => {
     if (sorting === "default") {
       return a.id - b.id;
     } else if (sorting === "price-low-to-high") {
@@ -47,6 +52,11 @@ const Products = () => {
       return a.name.localeCompare(b.name);
     }
   });
+
+  const loadProducts = sortedProducts.slice(0, visibleProducts);
+  useEffect(() => {
+    setVisibleProducts(6);
+  }, [searchInput, category]);
 
   return (
     <div>
@@ -85,12 +95,18 @@ const Products = () => {
       </div>
 
       {sortedProducts.length !== 0 ? (
-        <ProductList products={sortedProducts} />
+        <ProductList products={loadProducts} />
       ) : (
         <div className={styles.notFoundContainer}>
           <h2>No Products Found</h2>
           <p>Try searching with another product name.</p>
         </div>
+      )}
+
+      {visibleProducts < sortedProducts.length && (
+        <button className={styles.loadMore} onClick={loadHandler}>
+          Load More
+        </button>
       )}
 
       <Footer />
