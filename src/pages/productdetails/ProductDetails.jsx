@@ -17,7 +17,7 @@ const ProductDetails = () => {
   };
 
   const quantityDecrementHandler = () => {
-    if (quantity >= 1) {
+    if (quantity > 1) {
       setQuantity((prev) => prev - 1);
     }
   };
@@ -62,6 +62,7 @@ const ProductDetails = () => {
           </div>
 
           <div className={styles.quantity}>
+            <span>Quantity : </span>
             <button onClick={quantityDecrementHandler}>-</button>
             <p>{quantity}</p>
             <button onClick={quantityIncrementHandler}>+</button>
