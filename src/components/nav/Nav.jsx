@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/techshack-logo-black.png";
 import styles from "./Nav.module.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Nav = () => {
   const activeCheck = ({ isActive }) => (isActive ? styles.active : "");
@@ -19,14 +20,25 @@ const Nav = () => {
               Home
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/products" className={activeCheck}>
               Products
             </NavLink>
           </li>
+
           <li>
             <NavLink to="/about" className={activeCheck}>
               About
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/cart" className={activeCheck}>
+              <div className={styles.cartWrapper}>
+                <FaShoppingCart className={styles.cartIcon} />
+                <span>0</span>
+              </div>
             </NavLink>
           </li>
         </ul>
