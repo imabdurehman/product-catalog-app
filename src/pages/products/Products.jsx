@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Nav from "../../components/nav/Nav";
 import ProductList from "../../components/productlist/ProductList";
 import Footer from "../../components/footer/Footer";
 import SearchBar from "../../components/searchbar/SearchBar";
@@ -60,8 +59,6 @@ const Products = () => {
 
   return (
     <div>
-      <Nav />
-
       <div className={styles.control}>
         <SearchBar
           searchInput={searchInput}

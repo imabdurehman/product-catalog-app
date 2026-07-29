@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./Cart.module.css";
 import { IoClose } from "react-icons/io5";
 
-const Cart = ({ cart, setCart }) => {
-  const closeHandler = () => {};
+const Cart = ({ cart, setCart, setIsCartOpen }) => {
+  const closeHandler = () => {
+    setIsCartOpen(false);
+  };
 
   const quantityIncrementHandler = (id) => {
     const updatedCartQuantity = cart.map((item) =>
@@ -14,6 +16,8 @@ const Cart = ({ cart, setCart }) => {
 
   const quantityDecrementHandler = (id) => {
     const selectedProduct = cart.find((item) => item.id === id);
+
+    if (!selectedProduct) return;
 
     if (selectedProduct.quantity > 1) {
       const updatedCartQuantity = cart.map((item) =>

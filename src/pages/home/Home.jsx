@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
 import BannerImage from "../../assets/techshack-banner.png";
 import styles from "./Home.module.css";
@@ -14,8 +13,6 @@ const Home = () => {
 
   return (
     <div>
-      <Nav />
-
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.left}>

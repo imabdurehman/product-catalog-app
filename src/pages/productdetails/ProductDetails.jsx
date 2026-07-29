@@ -1,16 +1,13 @@
 import React from "react";
-import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import products from "../../data/products.json";
 import styles from "./ProductDetails.module.css";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const ProductDetails = ({ cart, setCart }) => {
+const ProductDetails = ({ cart, setCart, setIsCartOpen }) => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -54,13 +51,11 @@ const ProductDetails = ({ cart, setCart }) => {
       setCart([...cart, { ...selectedProduct, quantity: quantity }]);
     }
 
-    navigate("/cart");
+    setIsCartOpen(true);
   };
 
   return (
     <div className={styles.detailContainer}>
-      <Nav />
-
       <div className={styles.productContent}>
         <div className={styles.left}>
           <img src={selectedProduct.image} alt={selectedProduct.name} />

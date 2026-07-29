@@ -6,27 +6,36 @@ import Products from "./pages/products/Products";
 import ProductDetails from "./pages/productdetails/ProductDetails";
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Cart from "./pages/cart/Cart";
+import Nav from "./components/nav/Nav";
 import { useState } from "react";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <div>
+      <Nav cart={cart} setCart={setCart} setIsCartOpen={setIsCartOpen} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
         <Route
           path="/product/:id"
-          element={<ProductDetails cart={cart} setCart={setCart} />}
-        ></Route>
-        <Route
-          path="/cart"
-          element={<Cart cart={cart} setCart={setCart} />}
+          element={
+            <ProductDetails
+              cart={cart}
+              setCart={setCart}
+              setIsCartOpen={setIsCartOpen}
+            />
+          }
         ></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
+
+      {isCartOpen && (
+        <Cart cart={cart} setCart={setCart} setIsCartOpen={setIsCartOpen} />
+      )}
     </div>
   );
 }

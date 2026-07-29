@@ -4,7 +4,7 @@ import logo from "../../assets/techshack-logo-black.png";
 import styles from "./Nav.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 
-const Nav = () => {
+const Nav = ({ cart, setCart, setIsCartOpen }) => {
   const activeCheck = ({ isActive }) => (isActive ? styles.active : "");
 
   return (
@@ -34,12 +34,12 @@ const Nav = () => {
           </li>
         </ul>
 
-        <NavLink to="/cart" className={activeCheck}>
+        <button onClick={() => setIsCartOpen(true)} className={styles.cartBtn}>
           <div className={styles.cartWrapper}>
             <FaShoppingCart className={styles.cartIcon} />
             <span>0</span>
           </div>
-        </NavLink>
+        </button>
       </div>
     </nav>
   );
