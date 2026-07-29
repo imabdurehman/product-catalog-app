@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <Nav cart={cart} setCart={setCart} setIsCartOpen={setIsCartOpen} />
+      <Nav cart={cart} setIsCartOpen={setIsCartOpen} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>

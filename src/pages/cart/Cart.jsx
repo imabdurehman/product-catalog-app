@@ -35,6 +35,10 @@ const Cart = ({ cart, setCart, setIsCartOpen }) => {
     setCart(filterCartItem);
   };
 
+  const totalPrice = cart.reduce((total, item) => {
+    return (total += item.quantity * item.price);
+  }, 0);
+
   return (
     <div className={styles.overlay}>
       <div className={styles.cartDrawer}>
@@ -75,7 +79,7 @@ const Cart = ({ cart, setCart, setIsCartOpen }) => {
 
                 <div className={styles.rightSide}>
                   <p className={styles.subtotal}>
-                    {item.price * item.quantity}
+                    ${item.price * item.quantity}
                   </p>
 
                   <button
@@ -95,7 +99,7 @@ const Cart = ({ cart, setCart, setIsCartOpen }) => {
         <div className={styles.cartFooter}>
           <div className={styles.total}>
             <h3>Total</h3>
-            <h3>$999</h3>
+            <h3>${totalPrice}</h3>
           </div>
 
           <button className={styles.checkoutBtn}>Checkout</button>
