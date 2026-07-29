@@ -60,20 +60,35 @@
 }
 
 @media (max-width: 768px) {
+  .pageNotFoundContainer {
+    padding: 20px 15px;
+  }
+
   .pageNotFoundContainer h1 {
-    font-size: 90px;
+    font-size: 72px;
+    line-height: 1;
   }
 
   .pageNotFoundContainer h2 {
-    font-size: 28px;
+    font-size: 22px;
+    margin-top: 8px;
   }
 
   .pageNotFoundContainer p {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+
+    max-width: 300px;
+
+    margin: 12px auto 20px;
   }
 
   .pageNotFoundContainer button {
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
+
+    padding: 10px 18px;
+
+    font-size: 14px;
   }
 }

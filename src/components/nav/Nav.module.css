@@ -176,55 +176,66 @@
 @media (max-width: 768px) {
   .navContainer {
     height: 120px;
+    padding: 12px 20px;
 
-    padding: 15px 20px;
-
+    display: flex;
     flex-direction: column;
-
     justify-content: center;
+    align-items: center;
 
-    gap: 15px;
+    gap: 12px;
 
     position: relative;
   }
 
-  /* Logo Center */
+  /* Logo */
 
   .navContainer > a {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .navContainer img {
     width: 85px;
   }
 
-  /* Menu Row */
+  /* Menu */
 
   .navContainer ul {
     width: 100%;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     gap: 18px;
 
     position: relative;
-  }
 
-  /* Cart Right End */
+    padding-bottom: 6px;
+  }
 
   .navContainer ul li:last-child {
     position: absolute;
-
     right: 0;
   }
 
   .navContainer ul li a {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  /* Active underline */
+
+  .navContainer ul li a::after {
+    bottom: -4px;
+    height: 2px;
+  }
+
+  /* Cart */
+
+  .cartBtn {
+    padding: 0;
   }
 
   .cartIcon {
@@ -232,12 +243,12 @@
   }
 
   .cartWrapper span {
-    top: -10px;
-    right: -10px;
+    top: -8px;
+    right: -8px;
 
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
 
-    font-size: 10px;
+    font-size: 9px;
   }
 }
