@@ -41,10 +41,10 @@
   margin: 0px auto 30px;
   padding: 10px 20px;
 
-  background-color: #ffffff;
-  color: #4b5563;
+  background-color: #e5e7eb;
+  color: #374151;
 
-  border: 2px solid #d1d5db;
+  border: 2px solid #e5e7eb;
   border-radius: 10px;
 
   font-size: 16px;
@@ -55,9 +55,8 @@
 }
 
 .loadMore:hover {
-  background-color: #23629a;
-  color: #ffffff;
-  border-color: #23629a;
+  background-color: #d6e8fa;
+  border-color: #d6e8fa;
   transform: translateY(-2px);
 }
 
