@@ -7,11 +7,17 @@ import ProductDetails from "./pages/productdetails/ProductDetails";
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Cart from "./pages/cart/Cart";
 import Nav from "./components/nav/Nav";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    () => JSON.parse(localStorage.getItem("cartDetails")) || [],
+  );
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("cartDetails", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <div>

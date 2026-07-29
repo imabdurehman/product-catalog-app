@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Cart.module.css";
 import { IoClose } from "react-icons/io5";
 
 const Cart = ({ cart, setCart, setIsCartOpen }) => {
   const closeHandler = () => {
     setIsCartOpen(false);
+  };
+
+  const overlayHandler = () => {
+    setIsCartOpen(false);
+  };
+
+  const drawerHandler = (e) => {
+    e.stopPropagation();
   };
 
   const quantityIncrementHandler = (id) => {
@@ -39,9 +47,17 @@ const Cart = ({ cart, setCart, setIsCartOpen }) => {
     return (total += item.quantity * item.price);
   }, 0);
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
-    <div className={styles.overlay}>
-      <div className={styles.cartDrawer}>
+    <div onClick={overlayHandler} className={styles.overlay}>
+      <div onClick={drawerHandler} className={styles.cartDrawer}>
         {/* Header */}
 
         <div className={styles.cartHeader}>
