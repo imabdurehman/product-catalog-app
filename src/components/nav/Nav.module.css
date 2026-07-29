@@ -21,6 +21,8 @@
   align-items: center;
 }
 
+/* Logo */
+
 .navContainer img {
   width: 100px;
   cursor: pointer;
@@ -41,6 +43,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.navContainer ul li {
+  display: flex;
+  align-items: center;
 }
 
 .navContainer ul li a {
@@ -101,7 +108,6 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .cartBtn:focus {
@@ -146,6 +152,7 @@
   border-radius: 50%;
 
   background: #f97316;
+
   color: white;
 
   font-size: 11px;
@@ -168,28 +175,52 @@
 
 @media (max-width: 768px) {
   .navContainer {
-    height: 70px;
+    height: 120px;
 
-    padding: 0 20px;
+    padding: 15px 20px;
 
-    flex-direction: row;
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 15px;
 
     position: relative;
+  }
+
+  /* Logo Center */
+
+  .navContainer > a {
+    display: flex;
+    justify-content: center;
   }
 
   .navContainer img {
     width: 85px;
   }
 
-  .navContainer ul {
-    position: absolute;
+  /* Menu Row */
 
-    left: 50%;
-    transform: translateX(-50%);
+  .navContainer ul {
+    width: 100%;
 
     display: flex;
 
+    justify-content: center;
+
+    align-items: center;
+
     gap: 18px;
+
+    position: relative;
+  }
+
+  /* Cart Right End */
+
+  .navContainer ul li:last-child {
+    position: absolute;
+
+    right: 0;
   }
 
   .navContainer ul li a {

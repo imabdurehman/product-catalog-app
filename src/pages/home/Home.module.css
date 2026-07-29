@@ -164,17 +164,21 @@
 
 @media (max-width: 480px) {
   .left h1 {
-    font-size: 34px;
+    font-size: 28px;
+
+    line-height: 1.2;
   }
 
   .left p {
-    font-size: 16px;
+    font-size: 14px;
+
+    line-height: 1.5;
   }
 
   .left button {
-    padding: 14px 25px;
+    padding: 10px 20px;
 
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .card {

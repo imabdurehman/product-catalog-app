@@ -132,9 +132,9 @@
   .about {
     flex-direction: column;
 
-    padding: 60px 25px;
+    padding: 40px 20px;
 
-    gap: 50px;
+    gap: 30px;
   }
 
   .left {
@@ -142,11 +142,15 @@
   }
 
   .left h1 {
-    font-size: 38px;
+    font-size: 30px;
+
+    line-height: 1.2;
   }
 
   .left p {
-    font-size: 16px;
+    font-size: 14px;
+
+    line-height: 1.6;
   }
 
   .right {
@@ -157,13 +161,15 @@
 @media (max-width: 500px) {
   .right {
     grid-template-columns: 1fr;
+
+    gap: 15px;
   }
 
   .stat {
-    padding: 30px;
+    padding: 20px;
   }
 
   .stat h2 {
-    font-size: 32px;
+    font-size: 26px;
   }
 }

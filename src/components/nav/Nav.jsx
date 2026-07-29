@@ -36,14 +36,19 @@ const Nav = ({ cart, setIsCartOpen }) => {
               About
             </NavLink>
           </li>
-        </ul>
 
-        <button onClick={() => setIsCartOpen(true)} className={styles.cartBtn}>
-          <div className={styles.cartWrapper}>
-            <FaShoppingCart className={styles.cartIcon} />
-            <span>{cartCount}</span>
-          </div>
-        </button>
+          <li>
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className={styles.cartBtn}
+            >
+              <div className={styles.cartWrapper}>
+                <FaShoppingCart className={styles.cartIcon} />
+                <span>{cartCount}</span>
+              </div>
+            </button>
+          </li>
+        </ul>
       </div>
     </nav>
   );
