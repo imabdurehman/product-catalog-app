@@ -6,16 +6,25 @@ import Products from "./pages/products/Products";
 import ProductDetails from "./pages/productdetails/ProductDetails";
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Cart from "./pages/cart/Cart";
+import { useState } from "react";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route path="/product/:id" element={<ProductDetails />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route
+          path="/product/:id"
+          element={<ProductDetails cart={cart} setCart={setCart} />}
+        ></Route>
+        <Route
+          path="/cart"
+          element={<Cart cart={cart} setCart={setCart} />}
+        ></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
     </div>

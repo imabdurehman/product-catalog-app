@@ -139,55 +139,32 @@
 
 @media (max-width: 768px) {
   .navContainer {
-    height: auto;
-
-    padding: 15px 20px;
+    height: 70px;
+    padding: 0 20px;
 
     flex-direction: row;
-    flex-wrap: wrap;
-
-    gap: 15px;
-  }
-
-  .navContainer img {
-    width: 90px;
+    position: relative;
   }
 
   .navContainer ul {
-    width: 100%;
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
 
     display: flex;
-    align-items: center;
-
-    gap: 20px;
-
-    justify-content: flex-start;
-
-    flex-wrap: nowrap;
-
-    padding: 0;
-    margin: 0;
+    gap: 18px;
   }
 
-  .navContainer ul li:last-child {
+  .cartWrapper {
     margin-left: auto;
   }
 
+  .navContainer img {
+    width: 85px;
+  }
+
   .navContainer ul li a {
-    font-size: 15px;
-  }
-
-  .cartIcon {
-    font-size: 20px;
-  }
-
-  .cartWrapper span {
-    top: -10px;
-    right: -10px;
-
-    width: 16px;
-    height: 16px;
-
-    font-size: 10px;
+    font-size: 14px;
   }
 }

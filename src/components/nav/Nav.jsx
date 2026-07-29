@@ -32,16 +32,14 @@ const Nav = () => {
               About
             </NavLink>
           </li>
-
-          <li>
-            <NavLink to="/cart" className={activeCheck}>
-              <div className={styles.cartWrapper}>
-                <FaShoppingCart className={styles.cartIcon} />
-                <span>0</span>
-              </div>
-            </NavLink>
-          </li>
         </ul>
+
+        <NavLink to="/cart" className={activeCheck}>
+          <div className={styles.cartWrapper}>
+            <FaShoppingCart className={styles.cartIcon} />
+            <span>0</span>
+          </div>
+        </NavLink>
       </div>
     </nav>
   );

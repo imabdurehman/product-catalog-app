@@ -102,10 +102,10 @@
   width: 38px;
   height: 38px;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
 
-  background: #f3f4f6;
+  background: #e5e7eb;
   color: #374151;
 
   font-size: 20px;
@@ -116,8 +116,8 @@
 }
 
 .quantity button:hover {
-  background: #e5e7eb;
-  border-color: #9ca3af;
+  background: #d6e8fa;
+  border-color: #d6e8fa;
 }
 
 .quantity p {

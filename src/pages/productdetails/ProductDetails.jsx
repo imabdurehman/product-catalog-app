@@ -6,9 +6,11 @@ import products from "../../data/products.json";
 import styles from "./ProductDetails.module.css";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProductDetails = () => {
+const ProductDetails = ({ cart, setCart }) => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -22,9 +24,9 @@ const ProductDetails = () => {
     }
   };
 
-  const findProduct = products.find((product) => product.id === id);
+  const selectedProduct = products.find((product) => product.id === id);
 
-  if (!findProduct) {
+  if (!selectedProduct) {
     return (
       <div className={styles.notFound}>
         <h1>Product Not Found</h1>
@@ -33,32 +35,54 @@ const ProductDetails = () => {
     );
   }
 
+  const cartHandler = () => {
+    const existingProduct = cart.find((item) => item.id === selectedProduct.id);
+
+    // product exist in cart
+    if (existingProduct) {
+      const quantityIncreaser = cart.map((item) =>
+        item.id === selectedProduct.id
+          ? { ...item, quantity: item.quantity + quantity }
+          : item,
+      );
+
+      setCart(quantityIncreaser);
+    }
+
+    // product not exist in cart
+    else {
+      setCart([...cart, { ...selectedProduct, quantity: quantity }]);
+    }
+
+    navigate("/cart");
+  };
+
   return (
     <div className={styles.detailContainer}>
       <Nav />
 
       <div className={styles.productContent}>
         <div className={styles.left}>
-          <img src={findProduct.image} alt={findProduct.name} />
+          <img src={selectedProduct.image} alt={selectedProduct.name} />
         </div>
 
         <div className={styles.right}>
           <div className={styles.names}>
-            <p>{findProduct.brand}</p>
-            <h1>{findProduct.name}</h1>
+            <p>{selectedProduct.brand}</p>
+            <h1>{selectedProduct.name}</h1>
           </div>
 
           <div className={styles.rating}>
             <FaStar />
-            <span>{findProduct.rating}</span>
+            <span>{selectedProduct.rating}</span>
           </div>
 
           <div className={styles.price}>
-            <p>${findProduct.price}</p>
+            <p>${selectedProduct.price}</p>
           </div>
 
           <div className={styles.desc}>
-            <p>{findProduct.description}</p>
+            <p>{selectedProduct.description}</p>
           </div>
 
           <div className={styles.quantity}>
@@ -69,7 +93,7 @@ const ProductDetails = () => {
           </div>
 
           <div className={styles.cartButton}>
-            <button>Add To Cart</button>
+            <button onClick={cartHandler}>Add To Cart</button>
           </div>
         </div>
       </div>
