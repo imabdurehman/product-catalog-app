@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# TechShack – React Product Catalog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern and responsive Product Catalog application built with React. Users can browse products, search, filter, sort, view product details, and manage a shopping cart with data stored in Local Storage.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+* Responsive design for desktop and mobile
+* Product listing page
+* Product details page
+* Search products by name
+* Filter products by category
+* Sort products by:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  * Default
+  * Price (Low to High)
+  * Price (High to Low)
+  * Rating
+  * Name (A–Z)
+* Load More functionality
+* Shopping cart drawer
+* Add products to cart
+* Increase and decrease product quantity
+* Remove products from cart
+* Dynamic cart count notification
+* Real-time total price calculation
+* Cart data persistence using Local Storage
+* Dynamic product rendering
+* Shared cart state across components
+* Custom 404 page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## React Concepts Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Functional Components
+* Props
+* useState
+* useEffect
+* React Router
+* Conditional Rendering
+* Event Handling
+* State Management
+* Component Reusability
+* Local Storage
+* Array Methods (`map`, `filter`, `find`, `reduce`, `sort`, `slice`)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* React
+* React Router DOM
+* CSS Modules
+* React Icons
+* Local Storage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```text
+src
+│
+├── assets
+├── components
+├── data
+├── pages
+├── App.jsx
+└── index.js
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+git clone <repository-url>
 
-## Learn More
+cd TechShack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm start
+```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
+**Abdulrehman Siddiqi**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+GitHub: https://github.com/imabdurehman
 
-### Making a Progressive Web App
+LinkedIn: https://www.linkedin.com/in/imabdurehman
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
