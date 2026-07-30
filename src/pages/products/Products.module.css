@@ -1,6 +1,6 @@
 .control {
   max-width: 1200px;
-  margin: 40px auto 0px;
+  margin: 40px auto 0;
   padding: 0 20px;
 
   display: flex;
@@ -38,7 +38,7 @@
 .loadMore {
   display: block;
 
-  margin: 0px auto 30px;
+  margin: 0 auto 30px;
   padding: 10px 20px;
 
   background-color: #e5e7eb;
@@ -63,6 +63,28 @@
 .loadMore:active {
   transform: translateY(0);
 }
+
+/* Small Tablet */
+
+@media (min-width: 769px) and (max-width: 820px) {
+  .control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+  }
+
+  .control > :first-child {
+    grid-column: 1 / -1;
+  }
+
+  .control > * {
+    width: 100%;
+  }
+}
+
+/* Mobile */
 
 @media (max-width: 768px) {
   .control {

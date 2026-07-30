@@ -46,9 +46,32 @@
   color: #9ca3af;
 }
 
+/* Small Tablet */
+
+@media (min-width: 769px) and (max-width: 820px) {
+  .searchBox {
+    width: 100%;
+    flex: unset;
+    padding: 0 14px;
+  }
+
+  .searchBox svg {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .searchBox input {
+    padding: 14px 0;
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+
 @media (max-width: 768px) {
   .searchBox {
     width: 100%;
+    flex: unset;
     padding: 0 14px;
   }
 

@@ -39,11 +39,15 @@
   box-shadow: 0 0 0 3px rgba(35, 98, 154, 0.15);
 }
 
-@media (max-width: 768px) {
+/* Small Tablet */
+
+@media (min-width: 769px) and (max-width: 820px) {
   .filterControlsBox {
     width: 100%;
+
     flex-direction: column;
     align-items: stretch;
+
     gap: 8px;
   }
 
@@ -53,8 +57,36 @@
 
   .filterControlsBox select {
     width: 100%;
-    min-width: 100%;
+    min-width: 0;
+
     padding: 13px 15px;
+
+    font-size: 14px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .filterControlsBox {
+    width: 100%;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 8px;
+  }
+
+  .filterControlsBox label {
+    font-size: 15px;
+  }
+
+  .filterControlsBox select {
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 15px;
+
     font-size: 14px;
   }
 }
