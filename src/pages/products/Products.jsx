@@ -55,7 +55,7 @@ const Products = () => {
   const loadProducts = sortedProducts.slice(0, visibleProducts);
   useEffect(() => {
     setVisibleProducts(6);
-  }, [searchInput, category]);
+  }, [searchInput, category, sorting]);
 
   return (
     <div>
@@ -91,7 +91,7 @@ const Products = () => {
         </CategoryFilter>
       </div>
 
-      {sortedProducts.length !== 0 ? (
+      {loadProducts.length !== 0 ? (
         <ProductList products={loadProducts} />
       ) : (
         <div className={styles.notFoundContainer}>
