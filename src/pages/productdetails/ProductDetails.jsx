@@ -4,12 +4,16 @@ import { useParams } from "react-router-dom";
 import products from "../../data/products.json";
 import styles from "./ProductDetails.module.css";
 import { FaStar } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ProductDetails = ({ cart, setCart, setIsCartOpen }) => {
   const { id } = useParams();
 
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const quantityIncrementHandler = () => {
     setQuantity((prev) => prev + 1);
