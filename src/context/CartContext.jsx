@@ -6,6 +6,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(
     () => JSON.parse(localStorage.getItem("cartDetails")) || [],
   );
+
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
