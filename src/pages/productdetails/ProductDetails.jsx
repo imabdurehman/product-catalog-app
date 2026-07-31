@@ -5,11 +5,15 @@ import products from "../../data/products.json";
 import styles from "./ProductDetails.module.css";
 import { FaStar } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const ProductDetails = ({ cart, setCart, setIsCartOpen }) => {
+const ProductDetails = () => {
   const { id } = useParams();
 
   const [quantity, setQuantity] = useState(1);
+
+  const { cart, setCart, setIsCartOpen } = useContext(CartContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,7 +40,7 @@ const ProductDetails = ({ cart, setCart, setIsCartOpen }) => {
     );
   }
 
-  const cartHandler = () => {
+  const addToCartHandler = () => {
     const existingProduct = cart.find((item) => item.id === selectedProduct.id);
 
     // product exist in cart
@@ -92,7 +96,7 @@ const ProductDetails = ({ cart, setCart, setIsCartOpen }) => {
           </div>
 
           <div className={styles.cartButton}>
-            <button onClick={cartHandler}>Add To Cart</button>
+            <button onClick={addToCartHandler}>Add To Cart</button>
           </div>
         </div>
       </div>

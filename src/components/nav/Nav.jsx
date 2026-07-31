@@ -3,13 +3,14 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/techshack-logo-black.png";
 import styles from "./Nav.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const Nav = ({ cart, setIsCartOpen }) => {
+const Nav = () => {
   const activeCheck = ({ isActive }) => (isActive ? styles.active : "");
 
-  const cartCount = cart.reduce((total, item) => {
-    return (total += item.quantity);
-  }, 0);
+  const { cart, setIsCartOpen } = useContext(CartContext);
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <nav className={styles.nav}>

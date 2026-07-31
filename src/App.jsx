@@ -7,41 +7,24 @@ import ProductDetails from "./pages/productdetails/ProductDetails";
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Cart from "./pages/cart/Cart";
 import Nav from "./components/nav/Nav";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CartContext } from "./context/CartContext";
 
 function App() {
-  const [cart, setCart] = useState(
-    () => JSON.parse(localStorage.getItem("cartDetails")) || [],
-  );
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem("cartDetails", JSON.stringify(cart));
-  }, [cart]);
+  const { isCartOpen } = useContext(CartContext);
 
   return (
     <div>
-      <Nav cart={cart} setIsCartOpen={setIsCartOpen} />
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route
-          path="/product/:id"
-          element={
-            <ProductDetails
-              cart={cart}
-              setCart={setCart}
-              setIsCartOpen={setIsCartOpen}
-            />
-          }
-        ></Route>
+        <Route path="/product/:id" element={<ProductDetails />}></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
 
-      {isCartOpen && (
-        <Cart cart={cart} setCart={setCart} setIsCartOpen={setIsCartOpen} />
-      )}
+      {isCartOpen && <Cart />}
     </div>
   );
 }

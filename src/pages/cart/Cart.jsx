@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import styles from "./Cart.module.css";
 import { IoClose } from "react-icons/io5";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const Cart = ({ cart, setCart, setIsCartOpen }) => {
-  const closeHandler = () => {
-    setIsCartOpen(false);
-  };
+const Cart = () => {
+  const { cart, setCart, setIsCartOpen } = useContext(CartContext);
 
-  const overlayHandler = () => {
+  const closeCartHandler = () => {
     setIsCartOpen(false);
   };
 
@@ -43,9 +43,10 @@ const Cart = ({ cart, setCart, setIsCartOpen }) => {
     setCart(filterCartItem);
   };
 
-  const totalPrice = cart.reduce((total, item) => {
-    return (total += item.quantity * item.price);
-  }, 0);
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.quantity * item.price,
+    0,
+  );
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -56,14 +57,14 @@ const Cart = ({ cart, setCart, setIsCartOpen }) => {
   }, []);
 
   return (
-    <div onClick={overlayHandler} className={styles.overlay}>
+    <div onClick={closeCartHandler} className={styles.overlay}>
       <div onClick={drawerHandler} className={styles.cartDrawer}>
         {/* Header */}
 
         <div className={styles.cartHeader}>
           <h2>Shopping Cart</h2>
 
-          <button onClick={closeHandler} className={styles.closeBtn}>
+          <button onClick={closeCartHandler} className={styles.closeBtn}>
             <IoClose />
           </button>
         </div>
