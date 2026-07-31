@@ -1,6 +1,6 @@
 # TechShack – React Product Catalog
 
-A modern and responsive Product Catalog application built with React. Users can browse products, search, filter, sort, view product details, and manage a shopping cart with data stored in Local Storage.
+A modern and responsive Product Catalog application built with React. Users can browse products, search, filter, sort, view product details, and manage a shopping cart with data persisted using Local Storage and shared through the Context API.
 
 ---
 
@@ -27,7 +27,7 @@ A modern and responsive Product Catalog application built with React. Users can 
 * Real-time total price calculation
 * Cart data persistence using Local Storage
 * Dynamic product rendering
-* Shared cart state across components
+* Shared cart state across components using Context API
 * Custom 404 page
 
 ---
@@ -38,6 +38,8 @@ A modern and responsive Product Catalog application built with React. Users can 
 * Props
 * useState
 * useEffect
+* useContext
+* Context API
 * React Router
 * Conditional Rendering
 * Event Handling
@@ -52,6 +54,7 @@ A modern and responsive Product Catalog application built with React. Users can 
 
 * React
 * React Router DOM
+* Context API
 * CSS Modules
 * React Icons
 * Local Storage
@@ -65,6 +68,7 @@ src
 │
 ├── assets
 ├── components
+├── context
 ├── data
 ├── pages
 ├── App.jsx
@@ -93,5 +97,4 @@ npm start
 
 GitHub: https://github.com/imabdurehman
 
-LinkedIn: https://www.linkedin.com/in/imabdurehman
-
+LinkedIn: https://www.linkedin.com/in/imabdurehman
