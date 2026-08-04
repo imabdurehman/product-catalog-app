@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import ProductList from "../../components/productlist/ProductList";
-import Footer from "../../components/footer/Footer";
 import SearchBar from "../../components/searchbar/SearchBar";
 import products from "../../data/products.json";
 import { useState } from "react";
@@ -105,8 +104,6 @@ const Products = () => {
           Load More
         </button>
       )}
-
-      <Footer />
     </div>
   );
 };

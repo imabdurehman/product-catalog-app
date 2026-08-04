@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
@@ -7,6 +6,7 @@ import ProductDetails from "./pages/productdetails/ProductDetails";
 import PageNotFound from "./pages/pagenotfound/PageNotFound";
 import Cart from "./pages/cart/Cart";
 import Nav from "./components/nav/Nav";
+import Footer from "./components/footer/Footer";
 import { useContext } from "react";
 import { CartContext } from "./context/CartContext";
 
@@ -16,6 +16,7 @@ function App() {
   return (
     <div>
       <Nav />
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
@@ -25,6 +26,8 @@ function App() {
       </Routes>
 
       {isCartOpen && <Cart />}
+
+      <Footer />
     </div>
   );
 }

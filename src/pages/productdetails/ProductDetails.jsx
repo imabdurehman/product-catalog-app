@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import products from "../../data/products.json";
 import styles from "./ProductDetails.module.css";
@@ -100,8 +99,6 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

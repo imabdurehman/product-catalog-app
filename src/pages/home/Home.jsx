@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
 import BannerImage from "../../assets/techshack-banner.png";
 import styles from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
@@ -55,7 +54,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

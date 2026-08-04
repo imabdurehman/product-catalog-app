@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
 import styles from "./About.module.css";
 
 const About = () => {
@@ -45,7 +44,6 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
