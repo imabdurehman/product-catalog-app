@@ -1,0 +1,97 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 400px;
+  padding: 38px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.loginCard h1 {
+  margin: 0 0 28px;
+  color: #111827;
+  font-size: 24px;
+  text-align: center;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.formGroup label {
+  color: #374151;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.formGroup input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  outline: none;
+  color: #111827;
+  font-size: 13px;
+}
+
+.formGroup input:focus {
+  border-color: #111827;
+}
+
+.formGroup input::placeholder {
+  color: #9ca3af;
+}
+
+.loginCard button {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 7px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loginCard button:hover {
+  background: #1f2937;
+}
+
+.loginCard button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  margin-top: 18px;
+  margin-bottom: 0;
+  padding: 11px 12px;
+  border: 1px solid #fecaca;
+  border-radius: 7px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .loginCard {
+    padding: 28px 22px;
+  }
+}
