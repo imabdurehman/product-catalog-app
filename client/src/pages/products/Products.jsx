@@ -12,14 +12,21 @@ const Products = () => {
   const [searchInput, setSearchInput] = useState("");
   const [category, setCategory] = useState("All");
   const [sorting, setSorting] = useState("default");
-  const [visibleProducts, setVisibleProducts] = useState(6);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const fetchAllProducts = async () => {
+  const fetchAllProducts = async (
+    search = "",
+    category = "All",
+    sort = "default",
+    page = 1,
+    limit = 6,
+  ) => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/product`,
+        `${process.env.REACT_APP_API_URL}/api/product?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}&sort=${encodeURIComponent(sort)}&page=${page}&limit=${limit}`,
       );
 
       const data = await response.json();
@@ -28,7 +35,13 @@ const Products = () => {
         throw new Error(data.message || "Failed to fetch products");
       }
 
-      setProducts(data);
+      if (page === 1) {
+        setProducts(data.products);
+      } else {
+        setProducts((prev) => [...prev, ...data.products]);
+      }
+
+      setHasMore(data.hasMore);
     } catch (error) {
       setErrorMessage(error.message);
     } finally {
@@ -37,8 +50,10 @@ const Products = () => {
   };
 
   useEffect(() => {
-    fetchAllProducts();
-  }, []);
+    setPage(1);
+
+    fetchAllProducts(searchInput.trim(), category, sorting, 1, 6);
+  }, [searchInput, category, sorting]);
 
   const searchInputHandler = (e) => {
     setSearchInput(e.target.value);
@@ -53,38 +68,12 @@ const Products = () => {
   };
 
   const loadHandler = () => {
-    setVisibleProducts((prev) => prev + 6);
+    const nextPage = page + 1;
+
+    setPage(nextPage);
+
+    fetchAllProducts(searchInput.trim(), category, sorting, nextPage, 6);
   };
-
-  const searchInputLower = searchInput.toLowerCase().trim();
-
-  const searchProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchInputLower),
-  );
-
-  const filterProducts = searchProducts.filter(
-    (product) => category === "All" || product.category === category,
-  );
-
-  const sortedProducts = [...filterProducts].sort((a, b) => {
-    if (sorting === "default") {
-      return 0;
-    } else if (sorting === "price-low-to-high") {
-      return a.price - b.price;
-    } else if (sorting === "price-high-to-low") {
-      return b.price - a.price;
-    } else if (sorting === "rating") {
-      return b.rating - a.rating;
-    } else {
-      return a.name.localeCompare(b.name);
-    }
-  });
-
-  const loadProducts = sortedProducts.slice(0, visibleProducts);
-
-  useEffect(() => {
-    setVisibleProducts(6);
-  }, [searchInput, category, sorting]);
 
   if (loading) {
     return <Loader />;
@@ -129,8 +118,8 @@ const Products = () => {
         </CategoryFilter>
       </div>
 
-      {loadProducts.length !== 0 ? (
-        <ProductList products={loadProducts} />
+      {products.length !== 0 ? (
+        <ProductList products={products} />
       ) : (
         <div className={styles.notFoundContainer}>
           <h2>No Products Found</h2>
@@ -138,7 +127,7 @@ const Products = () => {
         </div>
       )}
 
-      {visibleProducts < sortedProducts.length && (
+      {hasMore && (
         <button className={styles.loadMore} onClick={loadHandler}>
           Load More
         </button>

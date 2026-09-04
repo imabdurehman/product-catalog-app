@@ -2,13 +2,41 @@ const Product = require("../models/Product");
 
 const getAllProducts = async (req, res) => {
   try {
-    const { search } = req.query;
+    const { search, category, sort, page = 1, limit = 6 } = req.query;
 
-    const filter = search ? { name: { $regex: search, $options: "i" } } : {};
+    const filter = {};
 
-    const products = await Product.find(filter);
+    if (search) {
+      filter.name = { $regex: search, $options: "i" };
+    }
 
-    res.status(200).json(products);
+    if (category && category !== "All") {
+      filter.category = category;
+    }
+
+    let query = Product.find(filter);
+
+    if (sort === "price-low-to-high") {
+      query = query.sort({ price: 1 });
+    } else if (sort === "price-high-to-low") {
+      query = query.sort({ price: -1 });
+    } else if (sort === "rating") {
+      query = query.sort({ rating: -1 });
+    } else if (sort === "name") {
+      query = query.collation({ locale: "en", strength: 2 }).sort({ name: 1 });
+    }
+
+    const skip = (page - 1) * limit;
+
+    query = query.skip(skip).limit(Number(limit));
+
+    const products = await query;
+
+    const totalProducts = await Product.countDocuments(filter);
+
+    const hasMore = skip + products.length < totalProducts;
+
+    res.status(200).json({ products, hasMore });
   } catch (error) {
     res.status(500).json({
       message: "Failed to fetch products",
