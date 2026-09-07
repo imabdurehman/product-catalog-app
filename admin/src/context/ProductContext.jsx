@@ -8,7 +8,7 @@ export const ProductProvider = ({ children }) => {
   const getProducts = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/product`,
+        `${process.env.REACT_APP_API_URL}/api/product?limit=1000`,
       );
 
       if (!response.ok) {

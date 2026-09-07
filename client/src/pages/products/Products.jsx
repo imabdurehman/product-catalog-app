@@ -25,6 +25,9 @@ const Products = () => {
     limit = 6,
   ) => {
     try {
+      setLoading(true);
+      setErrorMessage("");
+
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/api/product?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}&sort=${encodeURIComponent(sort)}&page=${page}&limit=${limit}`,
       );
