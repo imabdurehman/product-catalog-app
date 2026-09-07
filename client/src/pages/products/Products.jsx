@@ -10,6 +10,7 @@ import ErrorMessage from "../../components/error/ErrorMessage";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [sorting, setSorting] = useState("default");
   const [page, setPage] = useState(1);
@@ -53,10 +54,20 @@ const Products = () => {
   };
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchInput);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchInput]);
+
+  useEffect(() => {
     setPage(1);
 
-    fetchAllProducts(searchInput.trim(), category, sorting, 1, 6);
-  }, [searchInput, category, sorting]);
+    fetchAllProducts(debouncedSearch.trim(), category, sorting, 1, 6);
+  }, [debouncedSearch, category, sorting]);
 
   const searchInputHandler = (e) => {
     setSearchInput(e.target.value);
