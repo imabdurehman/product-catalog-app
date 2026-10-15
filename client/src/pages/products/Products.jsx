@@ -49,8 +49,6 @@ const Products = () => {
   }, [searchInput]);
 
   useEffect(() => {
-    let active = true;
-
     const getProducts = async () => {
       setPage(1);
       setLoading(true);
@@ -66,26 +64,16 @@ const Products = () => {
           6,
         );
 
-        if (!active) return;
-
         setProducts(data.products);
         setHasMore(data.hasMore);
       } catch (error) {
-        if (active) {
-          setErrorMessage(error.message);
-        }
+        setErrorMessage(error.message);
       } finally {
-        if (active) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
 
     getProducts();
-
-    return () => {
-      active = false;
-    };
   }, [debouncedSearch, category, sorting]);
 
   const searchInputHandler = (e) => {
