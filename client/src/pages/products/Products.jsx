@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductList from "../../components/productlist/ProductList";
 import SearchBar from "../../components/searchbar/SearchBar";
-import { useState } from "react";
 import styles from "./Products.module.css";
 import CategoryFilter from "../../components/categoryfilter/CategoryFilter";
 import Loader from "../../components/loader/Loader";
@@ -15,8 +14,11 @@ const Products = () => {
   const [sorting, setSorting] = useState("default");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loadMoreError, setLoadMoreError] = useState("");
 
   const fetchAllProducts = async (
     search = "",
@@ -25,32 +27,17 @@ const Products = () => {
     page = 1,
     limit = 6,
   ) => {
-    try {
-      setLoading(true);
-      setErrorMessage("");
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/api/product?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}&sort=${encodeURIComponent(sort)}&page=${page}&limit=${limit}`,
+    );
 
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/product?search=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}&sort=${encodeURIComponent(sort)}&page=${page}&limit=${limit}`,
-      );
+    const data = await response.json();
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to fetch products");
-      }
-
-      if (page === 1) {
-        setProducts(data.products);
-      } else {
-        setProducts((prev) => [...prev, ...data.products]);
-      }
-
-      setHasMore(data.hasMore);
-    } catch (error) {
-      setErrorMessage(error.message);
-    } finally {
-      setLoading(false);
+    if (!response.ok) {
+      throw new Error(data.message || "Failed to fetch products");
     }
+
+    return data;
   };
 
   useEffect(() => {
@@ -58,15 +45,47 @@ const Products = () => {
       setDebouncedSearch(searchInput);
     }, 500);
 
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, [searchInput]);
 
   useEffect(() => {
-    setPage(1);
+    let active = true;
 
-    fetchAllProducts(debouncedSearch.trim(), category, sorting, 1, 6);
+    const getProducts = async () => {
+      setPage(1);
+      setLoading(true);
+      setErrorMessage("");
+      setLoadMoreError("");
+
+      try {
+        const data = await fetchAllProducts(
+          debouncedSearch.trim(),
+          category,
+          sorting,
+          1,
+          6,
+        );
+
+        if (!active) return;
+
+        setProducts(data.products);
+        setHasMore(data.hasMore);
+      } catch (error) {
+        if (active) {
+          setErrorMessage(error.message);
+        }
+      } finally {
+        if (active) {
+          setLoading(false);
+        }
+      }
+    };
+
+    getProducts();
+
+    return () => {
+      active = false;
+    };
   }, [debouncedSearch, category, sorting]);
 
   const searchInputHandler = (e) => {
@@ -81,12 +100,31 @@ const Products = () => {
     setSorting(e.target.value);
   };
 
-  const loadHandler = () => {
+  const loadHandler = async () => {
+    if (loadingMore || !hasMore) return;
+
     const nextPage = page + 1;
 
-    setPage(nextPage);
+    setLoadingMore(true);
+    setLoadMoreError("");
 
-    fetchAllProducts(searchInput.trim(), category, sorting, nextPage, 6);
+    try {
+      const data = await fetchAllProducts(
+        debouncedSearch.trim(),
+        category,
+        sorting,
+        nextPage,
+        6,
+      );
+
+      setProducts((prev) => [...prev, ...data.products]);
+      setHasMore(data.hasMore);
+      setPage(nextPage);
+    } catch (error) {
+      setLoadMoreError(error.message || "Failed to load more products.");
+    } finally {
+      setLoadingMore(false);
+    }
   };
 
   if (loading) {
@@ -141,9 +179,19 @@ const Products = () => {
         </div>
       )}
 
+      {loadMoreError && (
+        <p className={styles.loadMoreError} role="alert">
+          {loadMoreError}
+        </p>
+      )}
+
       {hasMore && (
-        <button className={styles.loadMore} onClick={loadHandler}>
-          Load More
+        <button
+          className={styles.loadMore}
+          onClick={loadHandler}
+          disabled={loadingMore}
+        >
+          {loadingMore ? "Loading..." : "Load More"}
         </button>
       )}
     </div>
