@@ -229,10 +229,6 @@ The project can be deployed using:
 
 Production environment variables should be configured through the respective deployment platforms.
 
-## Author
+...
 
-**Abdulrehman Siddiqi**
-
-GitHub: https://github.com/imabdurehman
-
-LinkedIn: https://www.linkedin.com/in/imabdurehman
+⭐ If you found this project helpful, consider giving it a Star!
