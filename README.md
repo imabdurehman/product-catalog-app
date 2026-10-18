@@ -229,6 +229,6 @@ The project can be deployed using:
 
 Production environment variables should be configured through the respective deployment platforms.
 
-...
+---
 
 ⭐ If you found this project helpful, consider giving it a Star!
